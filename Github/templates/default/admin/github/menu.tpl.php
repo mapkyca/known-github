@@ -1,0 +1,1 @@
+<li <?php if ($_SERVER['REQUEST_URI'] == '/admin/github/') echo 'class="active"'; ?>><a href="/admin/github/">Github</a></li>
