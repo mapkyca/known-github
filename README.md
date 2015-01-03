@@ -11,7 +11,7 @@ This plugin provides syndication support that allows you to create issues and co
 Installation
 ------------
 
-* Drop the Gothub folder into the IndoPlugins folder of your Known installation.
+* Drop the Github folder into the IndoPlugins folder of your Known installation.
 * Log into known and click on Administration.
 * Click "install" on the plugins page
 * Perform an OAuth handshake
