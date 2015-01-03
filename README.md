@@ -5,6 +5,9 @@ This plugin provides Github syndication (POSSE) support for status updates.
 
 This plugin provides syndication support that allows you to create issues and comment on issues on Github repositories that you have access to.
 
+* To create an issue use https://github.com/USER/REPO/issues as the reply-to address
+* To create a new comment use https://github.com/USER/REPO/issues/TICKET as the reply-to address
+
 Installation
 ------------
 
