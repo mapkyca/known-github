@@ -34,7 +34,7 @@ namespace IdnoPlugins\Github {
 	    // Register syndication services
 	    \Idno\Core\site()->syndication()->registerService('github', function() {
 		return $this->hasGithub();
-	    }, ['note', 'article']);
+	    }, ['note']);
 
 
 	    $reply_func = function(\Idno\Core\Event $event) {
