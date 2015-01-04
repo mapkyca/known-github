@@ -127,8 +127,13 @@ namespace IdnoPlugins\Github {
 
 	    $htmlUrl = preg_replace('#https:\/\/(www\.)?github\.com\/#', 'https://api.github.com/repos/', $htmlUrl);
 
+	    // Comment on issue
 	    if (preg_match('#issues\/[0-9]+#', $htmlUrl))
 		    $htmlUrl = trim($htmlUrl, '/') . '/comments';
+	    
+	    // Comment on pull
+	    //if (preg_match('#pull\/[0-9]+#', $htmlUrl))
+	//	    $htmlUrl = trim(str_replace('pull','pulls', $htmlUrl), '/') . '/comments';
 	    
 	    return $htmlUrl;
 	}
