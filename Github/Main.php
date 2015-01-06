@@ -128,7 +128,7 @@ namespace IdnoPlugins\Github {
 	    $htmlUrl = preg_replace('#https:\/\/(www\.)?github\.com\/#', 'https://api.github.com/repos/', $htmlUrl);
 
 	    // Comment on issue
-	    if (preg_match('#issues\/[0-9]+#', $htmlUrl))
+	    if ($this->isIssueUrl($htmlUrl))
 		    $htmlUrl = trim($htmlUrl, '/') . '/comments';
 	    
 	    // Comment on pull
@@ -138,14 +138,17 @@ namespace IdnoPlugins\Github {
 	    return $htmlUrl;
 	}
 	
-	/** 
-	 * Get an issue URL.
-	 * 
-	 * If in_replyto set
+	/**
+	 * Is this an issue URL (posting to create a new issue)
+	 * @param type $url
 	 */
-	function getIssueUrl() {
+	protected function isIssueUrl($url) {
+	    if (preg_match('#issues\/[0-9]+#', $url))
+		    return true;
 	    
+	    return false;
 	}
+	
 
     }
 
