@@ -125,7 +125,11 @@ namespace IdnoPlugins\Github {
 	 */
 	function normaliseCommentUrl($htmlUrl) {
 
+	    // Map github to api endpoint
 	    $htmlUrl = preg_replace('#https:\/\/(www\.)?github\.com\/#', 'https://api.github.com/repos/', $htmlUrl);
+	    
+	    // Strip fragment
+	    $htmlUrl = $this->stripFragment($htmlUrl);
 
 	    // Comment on issue
 	    if ($this->isIssueUrl($htmlUrl))
@@ -149,6 +153,17 @@ namespace IdnoPlugins\Github {
 	    return false;
 	}
 	
+	/**
+	 * Strip fragments from a url
+	 * @param type $url
+	 */
+	protected function stripFragment($url) {
+	    
+	    $bits = parse_url($url);
+	    unset($bits['fragment']);
+	    
+	    return \Idno\Common\Page::buildUrl($url);
+	}
 
     }
 
