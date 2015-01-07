@@ -162,7 +162,7 @@ namespace IdnoPlugins\Github {
 	    $bits = parse_url($url);
 	    unset($bits['fragment']);
 	    
-	    return \Idno\Common\Page::buildUrl($url);
+	    return \Idno\Common\Page::buildUrl($bits);
 	}
 
     }
