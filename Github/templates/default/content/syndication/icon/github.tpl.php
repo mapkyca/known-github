@@ -1,1 +1,1 @@
-<i class="icon-github"></i>
+<i class="fa fa-github"></i>

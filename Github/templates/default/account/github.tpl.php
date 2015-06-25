@@ -1,13 +1,13 @@
 <div class="row">
 
-    <div class="span10 offset1">
+    <div class="span10 col-md-offset-1">
         <h3>Github</h3>
         <?=$this->draw('account/menu')?>
     </div>
 
 </div>
 <div class="row">
-    <div class="span10 offset1">
+    <div class="span10 col-md-offset-1">
         <form action="/account/github/" class="form-horizontal" method="post">
             <?php
                 if (empty(\Idno\Core\site()->session()->currentUser()->github)) {

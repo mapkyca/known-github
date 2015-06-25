@@ -1,13 +1,13 @@
 <div class="row">
 
-    <div class="span10 offset1">
+    <div class="span10 col-md-offset-1">
         <h1>Github</h1>
         <?=$this->draw('admin/menu')?>
     </div>
 
 </div>
 <div class="row">
-    <div class="span10 offset1">
+    <div class="span10 col-md-offset-1">
         <form action="/admin/github/" class="form-horizontal" method="post">
             <div class="control-group">
                 <div class="controls">
