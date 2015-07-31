@@ -31,6 +31,11 @@ namespace IdnoPlugins\Github {
 
 	function registerEventHooks() {
 	    
+	    // Register syndication services
+	    \Idno\Core\site()->syndication()->registerService('github', function() {
+		return $this->hasGithub();
+	    }, ['note']);
+
 	    // Activate syndication automatically, if replying to github
 	    \Idno\Core\site()->addEventHook('syndication/selected/github', function (\Idno\Core\Event $event) {
 		$eventdata = $event->data();
@@ -41,18 +46,12 @@ namespace IdnoPlugins\Github {
 			$replyto = [$replyto];
 
 		    foreach ($replyto as $url) {
-			if (strpos(parse_url($url)['host'], 'github.com') !== false)
-			    $event->setResponse(true);
+			if (strpos(parse_url($url)['host'], 'github.com')!==false)
+				$event->setResponse(true);
 		    }
 		}
 	    });
-
-	    // Register syndication services
-	    \Idno\Core\site()->syndication()->registerService('github', function() {
-		return $this->hasGithub();
-	    }, ['note']);
-
-
+	    
 	    $reply_func = function(\Idno\Core\Event $event) {
 		$object = $event->data()['object'];
 		if ($this->hasGithub()) {
