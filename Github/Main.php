@@ -59,7 +59,7 @@ namespace IdnoPlugins\Github {
 			$githubAPI->setAccessToken(\Idno\Core\site()->session()->currentUser()->github['access_token']);
 			$message = $object->getDescription();
 
-			$in_reply_to = \Idno\Core\site()->currentPage()->getInput('inreplyto');
+			$in_reply_to = array_merge((array) $object->inreplyto, (array) $object->syndicatedto); //\Idno\Core\site()->currentPage()->getInput('inreplyto');
 			if (!is_array($in_reply_to))
 			    $in_reply_to = [$in_reply_to];
 
