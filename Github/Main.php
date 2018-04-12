@@ -36,6 +36,18 @@ namespace IdnoPlugins\Github {
 		return $this->hasGithub();
 	    }, ['note']);
 
+	    \Idno\Core\Idno::site()->addEventHook('user/auth/success', function (\Idno\Core\Event $event) {
+	    	 if ($this->hasGithub()) {
+			if (is_array(\Idno\Core\site()->session()->currentUser()->github)) { 
+			    foreach (\Idno\Core\site()->session()->currentUser()-> github as $id => $details) {
+				if ($id = 'access_token') {
+				    \Idno\Core\site()->syndication()->registerServiceAccount('github', $id, 'github');
+				}
+			    }	
+			}
+		}
+ 	    });	
+
 	    // Activate syndication automatically, if replying to github
 	    \Idno\Core\site()->addEventHook('syndication/selected/github', function (\Idno\Core\Event $event) {
 		$eventdata = $event->data();
