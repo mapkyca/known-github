@@ -17,11 +17,11 @@ namespace IdnoPlugins\Github {
 
 	function registerPages() {
 	    // Register the callback URL
-	    \Idno\Core\site()->addPageHandler('github/callback', '\IdnoPlugins\Github\Pages\Callback');
+	    \Idno\Core\Idno::site()->routes()->addRoute('github/callback', '\IdnoPlugins\Github\Pages\Callback');
 	    // Register admin settings
-	    \Idno\Core\site()->addPageHandler('admin/github', '\IdnoPlugins\Github\Pages\Admin');
+	    \Idno\Core\Idno::site()->routes()->addRoute('admin/github', '\IdnoPlugins\Github\Pages\Admin');
 	    // Register settings page
-	    \Idno\Core\site()->addPageHandler('account/github', '\IdnoPlugins\Github\Pages\Account');
+	    \Idno\Core\Idno::site()->routes()->addRoute('account/github', '\IdnoPlugins\Github\Pages\Account');
 
 	    /** Template extensions */
 	    // Add menu items to account & administration screens
@@ -36,7 +36,7 @@ namespace IdnoPlugins\Github {
 		return $this->hasGithub();
 	    }, ['note']);
 
-	    \Idno\Core\Idno::site()->addEventHook('user/auth/success', function (\Idno\Core\Event $event) {
+	    \Idno\Core\Idno::site()->events()->addListener('user/auth/success', function (\Idno\Core\Event $event) {
 	    	 if ($this->hasGithub()) {
 			if (is_array(\Idno\Core\site()->session()->currentUser()->github)) { 
 			    foreach (\Idno\Core\site()->session()->currentUser()-> github as $id => $details) {
@@ -49,7 +49,7 @@ namespace IdnoPlugins\Github {
  	    });	
 
 	    // Activate syndication automatically, if replying to github
-	    \Idno\Core\site()->addEventHook('syndication/selected/github', function (\Idno\Core\Event $event) {
+	    \Idno\Core\Idno::site()->events()->addListener('syndication/selected/github', function (\Idno\Core\Event $event) {
 		$eventdata = $event->data();
 
 		if (!empty($eventdata['reply-to'])) {
@@ -116,8 +116,8 @@ namespace IdnoPlugins\Github {
 	    };
 
 	    // Reply to a comment
-	    \Idno\Core\site()->addEventHook('post/note/github', $reply_func);
-	    \Idno\Core\site()->addEventHook('post/article/github', $reply_func);
+	    \Idno\Core\Idno::site()->events()->addListener('post/note/github', $reply_func);
+	    \Idno\Core\Idno::site()->events()->addListener('post/article/github', $reply_func);
 	   
 	}
 
