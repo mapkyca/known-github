@@ -24,7 +24,7 @@
                 $this->adminGatekeeper(); // Admins only
                 $appId = $this->getInput('appId');
                 $secret = $this->getInput('secret');
-                \Idno\Core\site()->config->config['github'] = [
+                \Idno\Core\site()->config()->config['github'] = [
                     'appId' => $appId,
                     'secret' => $secret
                 ];

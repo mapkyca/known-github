@@ -28,6 +28,14 @@ namespace IdnoPlugins\Github {
 	    \Idno\Core\site()->template()->extendTemplate('admin/menu/items', 'admin/github/menu');
 	    \Idno\Core\site()->template()->extendTemplate('account/menu/items', 'account/github/menu');
 	}
+     
+        function registerTranslations() {
+            \Idno\Core\Idno::site()->language()->register(
+                    new \Idno\Core\GetTextTranslation(
+                            'github', dirname(__FILE__) . '/languages/'
+                    )
+            );
+        }
 
 	function registerEventHooks() {
 	    

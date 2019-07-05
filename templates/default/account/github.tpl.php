@@ -15,10 +15,10 @@
                     <div class="control-group">
                         <div class="controls">
                             <p>
-                                If you have a Github account, you may connect it here. You will then be able to reply to Github issues via your site.
+                                <?= \Idno\Core\Idno::site()->language()->_('If you have a Github account, you may connect it here. You will then be able to reply to Github issues via your site.');?>
                             </p>
                             <p>
-                                <a href="<?=$vars['login_url']?>" class="btn btn-large btn-success">Click here to connect Github to your account</a>
+                                <a href="<?=$vars['login_url']?>" class="btn btn-large btn-success"><?= \Idno\Core\Idno::site()->language()->_('Click here to connect Github to your account'); ?></a>
                             </p>
                         </div>
                     </div>
@@ -30,11 +30,11 @@
                     <div class="control-group">
                         <div class="controls">
                             <p>
-                                Your account is currently connected to Github. You can now reply to Github issues via your site.
+                                <?= \Idno\Core\Idno::site()->language()->_('Your account is currently connected to Github. You can now reply to Github issues via your site.'); ?>
                             </p>
                             <p>
                                 <input type="hidden" name="remove" value="1" />
-                                <button type="submit" class="btn btn-large btn-primary">Click here to remove Github from your account.</button>
+                                <button type="submit" class="btn btn-large btn-primary"><?= \Idno\Core\Idno::site()->language()->_('Click here to remove Github from your account.'); ?></button>
                             </p>
                         </div>
                     </div>

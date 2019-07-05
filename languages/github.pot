@@ -1,0 +1,40 @@
+#: ./templates/default/admin/github.tpl.php:15
+msgid "To begin using Github, <a href=\"https://github.com/settings/applications/new\" target=\"_blank\">create a new application in the Github apps portal</a>"
+msgstr ""
+
+#: ./templates/default/admin/github.tpl.php:17
+msgid "Add the following URL to the \'Authorization callback URL\' callback url box <strong>%sgithub/callback</strong>."
+msgstr ""
+
+#: ./templates/default/admin/github.tpl.php:20
+msgid "Once you\'ve finished, fill in the details below:"
+msgstr ""
+
+#: ./templates/default/admin/github.tpl.php:25
+msgid "Client ID"
+msgstr ""
+
+#: ./templates/default/admin/github.tpl.php:31
+msgid "Client Secret"
+msgstr ""
+
+#: ./templates/default/admin/github.tpl.php:38
+msgid "Save"
+msgstr ""
+
+#: ./templates/default/account/github.tpl.php:18
+msgid "If you have a Github account, you may connect it here. You will then be able to reply to Github issues via your site."
+msgstr ""
+
+#: ./templates/default/account/github.tpl.php:21
+msgid "Click here to connect Github to your account"
+msgstr ""
+
+#: ./templates/default/account/github.tpl.php:33
+msgid "Your account is currently connected to Github. You can now reply to Github issues via your site."
+msgstr ""
+
+#: ./templates/default/account/github.tpl.php:37
+msgid "Click here to remove Github from your account."
+msgstr ""
+
